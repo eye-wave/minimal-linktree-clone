@@ -3,7 +3,7 @@ name: Capture and Store Page Screenshot
 on:
   push:
     branches:
-      - main
+      - main  # Change this to the branch you want to trigger the action on
 
 jobs:
   capture_and_store_screenshot:
@@ -13,11 +13,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
 
-      - name: Install dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium
-
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
@@ -26,9 +21,9 @@ jobs:
 
       - name: Capture Screenshot
         run: |
-          chromium --headless --disable-gpu --screenshot --window-size=1280x1024 --virtual-time-budget=10000 https://eye-wave.github.io/minimal-linktree-clone/
-          mkdir -p assets
-          mv screenshot.png assets/
+          mkdir -p screenshots
+          docker run -v ${{ github.workspace }}/screenshots:/screenshots pptrdev/developer \
+            npx puppeteer --no-sandbox --disable-setuid-sandbox -s 1280x1024 -u "https://your-gh-pages-url/" -s "/screenshots/screenshot.png"
 
       - name: Commit and Push
         uses: stefanzweifel/git-auto-commit-action@v4
