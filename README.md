@@ -1,8 +1,8 @@
-# my linktree clone 
+# linktree clone 
 
 <div align="center">
 
-My attempt at creating identical copy of my old linktree site, with as little code as possible.
+My attempt at creating identical copy of your average looking linktree, with as little code as possible.
 
 ## Visit the site [here](https://eye-wave.github.io/minimal-linktree-clone/)
 
