@@ -3,7 +3,7 @@ name: Capture and Store Page Screenshot
 on:
   push:
     branches:
-      - main  # Change this to the branch you want to trigger the action on
+      - main
 
 jobs:
   capture_and_store_screenshot:
@@ -22,7 +22,7 @@ jobs:
       - name: Capture Screenshot
         run: |
           mkdir -p screenshots
-          docker run -v ${{ github.workspace }}/screenshots:/screenshots pptrdev/developer \
+          docker run -v ${{ github.workspace }}/screenshots:/screenshots buildkite/puppeteer \
             npx puppeteer --no-sandbox --disable-setuid-sandbox -s 1280x1024 -u "https://your-gh-pages-url/" -s "/screenshots/screenshot.png"
 
       - name: Commit and Push
