@@ -1,7 +1,8 @@
 {
   "scripts": {
-    "start": "five-server src",
-    "build": "node bundler.mjs"
+    "dev": "five-server src",
+    "build": "node bundler.mjs",
+    "preview": "five-server dist"
   },
   "devDependencies": {
     "html-minifier": "^4.0.0",

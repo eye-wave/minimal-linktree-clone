@@ -1,1 +1,5 @@
-let b=document.body;b.innerHTML=b.innerHTML.replace(/%age%/g,new Date().getFullYear()-2004)
+document.querySelectorAll("[data-src]")
+  .forEach(img => {
+    img.src = img.dataset.src
+    img.onload =() => img.removeAttribute("style")
+  })
