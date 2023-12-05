@@ -12,7 +12,7 @@ const mini = minify(
   html
     .replace(/<link.*css.*>/, "<style>" + cleanedCss.styles + "</style>")
     .replace(/<script.*js.*>/, "<script>" + js + "</script>")
-    .replace(/%age%/,Math.floor((Date.now() - 107784e7) / 31332096e3))
+    .replace(/%age%/,Math.floor((Date.now() - 107784e7) / 315576e4))
   , {
   collapseWhitespace: true,
   minifyCSS: true,
